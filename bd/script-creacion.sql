@@ -84,3 +84,19 @@ create table Log_Login (
 	username varchar(32) not null,
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
+
+create table Curso (
+	id int not null auto_increment,
+	nombre varchar(128),
+	primary key(id)
+) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
+
+create table Persona_Curso (
+	id int not null auto_increment,
+	persona int not null,
+	curso int not null,
+	fecha date not null,
+	primary key(id),
+	foreign key (persona) references Persona(id),
+	foreign key (curso) references Curso(id)
+) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;

@@ -114,6 +114,22 @@
 
                 foreach ($permisos as $p)
                     $personas[$i]["permisos"] .= "[" . $p['id'] . "]";
+
+                /* Cursos */
+                $query = $this->db->prepare("
+                    select 
+                        c.id as id,
+                        c.nombre as nombre,
+                        date_format(pc.fecha, '%d/%m/%Y') as fecha
+                    from Curso as c, Persona_Curso as pc
+                    where pc.curso=c.id and pc.persona=:pid
+                ");
+
+                $query->execute(array(
+                    ":pid" => $personas[$i]['id']
+                ));
+
+                $personas[$i]['cursos'] = $query->fetchAll();
             }
 
             return json_encode($personas);
@@ -190,9 +206,54 @@
 
                 foreach ($permisos as $p)
                     $personas[$i]["permisos"] .= "[" . $p['id'] . "]";
+
+                /* Cursos */
+                $query = $this->db->prepare("
+                    select 
+                        c.id as id,
+                        c.nombre as nombre,
+                        date_format(pc.fecha, '%d/%m/%Y') as fecha
+                    from Curso as c, Persona_Curso as pc
+                    where pc.curso=c.id and pc.persona=:pid
+                ");
+
+                $query->execute(array(
+                    ":pid" => $personas[$i]['id']
+                ));
+
+                $personas[$i]['cursos'] = $query->fetchAll();
             }
 
             return json_encode($personas[0]);
+        }
+
+        public function cargar_cursos($post)
+        {
+            $query = $this->db->prepare("
+                select *
+                from Curso
+            ");
+
+            $query->execute();
+
+            return json_encode($query->fetchAll());
+        }
+
+        public function cargar_curso($post)
+        {
+            $query = $this->db->prepare("
+                select *
+                from Curso
+                where id=:id
+            ");
+
+            $query->execute(array(
+                ":id" => $post['id']
+            ));
+
+            $cursos = $query->fetchAll();
+
+            return json_encode($cursos[0]);
         }
 	}
 ?>

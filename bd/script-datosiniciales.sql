@@ -17,3 +17,9 @@ insert into Permiso_Categoria (nombre) values ('Personas');
 insert into Permiso (nombre, descripcion, riesgo, categoria) values ('personas_agregar', 'Podrá añadir nuevas personas al sistema', 6, 1),
 	('personas_editar', 'Podrá editar cualquier persona disponible en el sistema', 6, 1),
 	('personas_deshabilitar', 'Podrá deshabilitar cualquier persona disponible en el sistema', 5, 1);
+
+insert into Permiso_Categoria (nombre) values ('Cursos');
+
+insert into Permiso (nombre, descripcion, riesgo, categoria) values ('cursos_agregar', 'Podrá añadir nuevos cursos al sistema', 6, 2),
+	('cursos_editar', 'Podrá editar cualquier curso disponible en el sistema', 6, 2),
+	('cursos_deshabilitar', 'Podrá deshabilitar cualquier curso disponible en el sistema', 5, 2);

@@ -140,6 +140,51 @@
 			<input type="text" ng-model="persona.facebook" name="facebook" ng-minlength=0 ng-maxlength=256 placeholder="Usuario o enlace" />
 		</div>
 
+		<hr/>
+
+		<h4 ng-init="persona.cursos = array(); cargar_cursos();">
+			Cursos realizados
+		</h4>
+
+		<div class="cursos">
+			Curso <br>
+			<select class="selectpicker" data-live-search="true" data-width="75%" ng-model="curso.id" name="curso_id" ts-select-fix>
+				<option ng-repeat="curso in cursos" value="{{ $index }}">{{ curso.nombre }}</option>
+			</select><br><br>
+
+			Fecha 
+			<div class="datepicker-curso" style="width: 75%;">
+				<input type="text" id="fechacurso" class="form-control" ng-model="curso.fecha" name="fechacurso" style="font-size: 11px;" readonly />
+			</div> <br>
+
+			<script type="text/javascript">
+				$('.datepicker-curso input').datepicker({
+					format: 'dd/mm/yyyy',
+				});
+			</script>
+
+			<button type="button" class="btn btn-default" ng-click="anadir_curso()">
+				Añadir
+			</button>
+		</div>
+
+		<table class="table table-striped">
+			<thead>
+				<th>&nbsp;</th>
+				<th>Nombre</th>
+				<th>Fecha</th>
+			</thead>
+			<tbody>
+				<tr class="curso" ng-repeat="curso in persona.cursos">
+					<td><span ng-click="eliminar_curso($index)" title="Eliminar">&times;</span></td>
+					<td>{{ curso.nombre }}</td>
+					<td>{{ curso.fecha }}</td>
+				</tr>
+			</tbody>
+		</table>
+
+		<hr/>
+
 		<div>
 			<h3 ng-init="cargar_permisos(); persona.permisos = '';">Permisos <small class="btn btn-link" ng-click="todos_los_permisos()">Marcar todos</small></h3>
 

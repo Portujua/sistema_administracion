@@ -20,8 +20,10 @@ RewriteRule ^bd.*$ /casauslarpietri/ [R=301,L]
 RewriteRule ^api/lugares$ /casauslarpietri/php/run.php?fn=cargar_lugares [QSA,L]
 RewriteRule ^api/personas$ /casauslarpietri/php/run.php?fn=cargar_personas [QSA,L]
 RewriteRule ^api/permisos$ /casauslarpietri/php/run.php?fn=cargar_permisos [QSA,L]
+RewriteRule ^api/cursos$ /casauslarpietri/php/run.php?fn=cargar_cursos [QSA,L]
 
 RewriteRule ^api/lugar/(.+)$ /casauslarpietri/php/run.php?fn=cargar_lugar&lid=$1 [QSA,L]
 RewriteRule ^api/persona/(.+)$ /casauslarpietri/php/run.php?fn=cargar_persona&cedula=$1 [QSA,L]
+RewriteRule ^api/curso/(.+)$ /casauslarpietri/php/run.php?fn=cargar_curso&id=$1 [QSA,L]
 
 RewriteRule ^api/check/usuario/(.+)$ /casauslarpietri/php/run.php?fn=check_usuario&username=$1 [QSA,L]

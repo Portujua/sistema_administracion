@@ -122,9 +122,61 @@
                 ));
             }
 
+            /* Borro los cursos */
+            $query = $this->db->prepare("
+                delete from Persona_Curso where persona=:uid
+            ");
+
+            $query->execute(array(
+                ":uid" => $post['id']
+            ));
+
+            /* Cursos */
+            if (isset($post['cursos']))
+            {
+                foreach ($post['cursos'] as $c)
+                {
+                    $s = explode("/", $c['fecha']);
+                    $fecha = $s[2] . "-" . $s[1] . "-" . $s[0];
+
+                    $query = $this->db->prepare("
+                        insert into Persona_Curso (curso, persona, fecha)
+                        values (:curso, :persona, :fecha)
+                    ");
+
+                    $query->execute(array(
+                        ":curso" => $c['id'],
+                        ":persona" => $post['id'],
+                        ":fecha" => $fecha,
+                    ));
+                }
+            }
+
             $json["status"] = "ok";
             $json["ok"] = true;
             $json["msg"] = $post['nombre'] . " " . $post['apellido'] . " fue modificado correctamente.";
+
+            return json_encode($json);
+        }
+
+        public function editar_curso($post)
+        {
+            $json = array();
+
+            $query = $this->db->prepare("
+                update Curso set 
+                    nombre=:nombre
+                where id=:id
+            ");
+
+            $query->execute(array(
+                ":id" => $post['id'],
+                ":nombre" => $post['nombre']
+            ));
+
+            $json["status"] = "ok";
+            $json["ok"] = true;
+            $json["msg"] = "El curso " . $post['nombre'] . " fue modificado correctamente.";
 
             return json_encode($json);
         }

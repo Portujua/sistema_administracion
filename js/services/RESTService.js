@@ -8,6 +8,13 @@
 				});
 			},
 
+			getCursos: function(s){
+				$http.get("api/cursos").then(function(obj){
+					s.cursos = obj.data;
+					$timeout(function(){$('.selectpicker').selectpicker('refresh');}, 500);
+				});
+			},
+
 			getPermisos: function(s){
 				$http.get("api/permisos").then(function(obj){
 					s.permisos = obj.data;

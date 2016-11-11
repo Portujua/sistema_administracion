@@ -41,6 +41,10 @@
 			RESTService.getLugares($scope);
 		}
 
+		$scope.cargar_cursos = function(){
+			RESTService.getCursos($scope);
+		}
+
 		$scope.autocomplete_lugares = function(){
 			var availableTags = [];
 			var json = $scope.lugares;
@@ -182,6 +186,26 @@
 
 		$scope.seleccionar = function(p){
 			$scope.p_ = p;
+		}
+
+		$scope.anadir_curso = function(){
+			$scope.persona.cursos.push({
+				id: $scope.cursos[$scope.curso.id].id,
+				nombre: $scope.cursos[$scope.curso.id].nombre,
+				fecha: $scope.curso.fecha
+			});
+
+			$scope.curso = null;
+		}
+
+		$scope.eliminar_curso = function(index){
+			var aux = [];
+
+			for (var i = 0; i < $scope.persona.cursos.length; i++)
+				if (i != index)
+					aux.push($scope.persona.cursos[i]);
+
+			$scope.persona.cursos = aux;
 		}
 
 		if ($routeParams.cedula)
