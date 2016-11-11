@@ -1,4 +1,4 @@
-INSERT INTO `lugar` (`id`, `nombre`, `tipo`, `lugar`, `nombre_completo`) VALUES
+INSERT INTO Lugar (`id`, `nombre`, `tipo`, lugar, `nombre_completo`) VALUES
 (1, 'Venezuela', 'pais', NULL, 'Venezuela'),
 (2, 'Distrito Capital', 'estado', 1, 'Distrito Capital, Venezuela'),
 (3, 'Anzoategui', 'estado', 1, 'Anzoategui, Venezuela'),
@@ -592,7 +592,7 @@ INSERT INTO `lugar` (`id`, `nombre`, `tipo`, `lugar`, `nombre_completo`) VALUES
 (591, 'Cm. Upata', 'parroquia', 88, 'Cm. Upata, Municipio Piar, Bolivar, Venezuela'),
 (592, 'Andres Eloy Blanco', 'parroquia', 88, 'Andres Eloy Blanco, Municipio Piar, Bolivar, Venezuela'),
 (593, 'Pedro Cova', 'parroquia', 88, 'Pedro Cova, Municipio Piar, Bolivar, Venezuela');
-INSERT INTO `lugar` (`id`, `nombre`, `tipo`, `lugar`, `nombre_completo`) VALUES
+INSERT INTO Lugar (`id`, `nombre`, `tipo`, lugar, `nombre_completo`) VALUES
 (594, 'Cm. Guasipati', 'parroquia', 89, 'Cm. Guasipati, Municipio Roscio, Bolivar, Venezuela'),
 (595, 'Salom', 'parroquia', 89, 'Salom, Municipio Roscio, Bolivar, Venezuela'),
 (596, 'Cm. Maripa', 'parroquia', 90, 'Cm. Maripa, Municipio Sucre, Bolivar, Venezuela'),
@@ -1121,7 +1121,7 @@ INSERT INTO `lugar` (`id`, `nombre`, `tipo`, `lugar`, `nombre_completo`) VALUES
 (1119, 'Aricagua', 'parroquia', 256, 'Aricagua, Municipio Montes, Sucre, Venezuela'),
 (1120, 'Cocollar', 'parroquia', 256, 'Cocollar, Municipio Montes, Sucre, Venezuela'),
 (1121, 'San Fernando', 'parroquia', 256, 'San Fernando, Municipio Montes, Sucre, Venezuela');
-INSERT INTO `lugar` (`id`, `nombre`, `tipo`, `lugar`, `nombre_completo`) VALUES
+INSERT INTO Lugar (`id`, `nombre`, `tipo`, lugar, `nombre_completo`) VALUES
 (1122, 'San Lorenzo', 'parroquia', 256, 'San Lorenzo, Municipio Montes, Sucre, Venezuela'),
 (1123, 'Cariaco', 'parroquia', 257, 'Cariaco, Municipio Ribero, Sucre, Venezuela'),
 (1124, 'Catuaro', 'parroquia', 257, 'Catuaro, Municipio Ribero, Sucre, Venezuela'),
