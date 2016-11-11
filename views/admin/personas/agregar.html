@@ -72,7 +72,7 @@
 
 		<div class="fila" ng-init="cargar_lugares()">
 			<p>Parroquia (*)</p>
-			<input type="text" ng-model="persona.lugar" name="lugar" />
+			<input type="text" ng-model="persona.lugar" name="lugar" ng-minlength=10 />
 
 			<!--<select class="selectpicker" data-live-search="true" data-width="75%" ng-model="persona.lugar" name="lugar" required ts-select-fix>
 				<option ng-repeat="lugar in lugares" value="{{ lugar.id }}" ng-if="lugar.tipo == 'parroquia'">{{ lugar.nombre_completo }}</option>
