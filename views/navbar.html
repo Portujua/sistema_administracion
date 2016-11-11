@@ -1,0 +1,29 @@
+<div class="navbar container" ng-show="loginService.isLoggedIn()">
+	<a href="./#/"><img src="img/lapiz.png" /></a>
+
+	<div class="navbar-right">
+		<strong>{{ loginService.getCurrentUser().nombre + " " + loginService.getCurrentUser().apellido }}</strong> <span class="glyphicon glyphicon-off pull-right" ng-click="logout()" style="color: #c9302c !important; border: none;" aria-hidden="true" title="Cerrar sesión"></span>
+
+		<p>
+			<small>Última visita: {{ loginService.getCurrentUser().ultima_visita.fecha.length > 0 ? loginService.getCurrentUser().ultima_visita.fecha + ' a las ' + loginService.getCurrentUser().ultima_visita.hora : 'Nunca' }}</small>
+		</p>
+	</div>
+
+	<div class="navbar-center">
+		<div class="btn-group" ng-show="loginService.menuAdmin()">
+			<button class="dropdown-toggle" type="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+				Administración <span class="caret"></span>
+			</button>
+
+			<ul class="dropdown-menu">
+				<a href="./#/personas" ng-show="loginService.menuAdminPersonas()">
+					<li>Personas</li>
+				</a>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<hr style="border-top: 2px solid #ddd;" />
+
+<a href="" ng-click="cerrar_seccion()" class="cerrar_seccion" ng-show="!enInicio"><span aria-hidden="true">&times;</span></a>

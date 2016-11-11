@@ -1,0 +1,161 @@
+<form class="container" name="agregar" ng-controller="Persona" ng-submit="registrar_persona()" novalidate>
+	<div class="register-form">
+		<p class="btn-volver">
+			<a class="btn btn-link" href="./#/personas">&larr; Volver</a>
+		</p>
+
+		<h1 style="font-size: 20px;">Personas &rarr; {{ editar ? 'Editar' : 'Agregar' }}</h1>
+
+		<p><small>(*) Campos obligatorios</small></p>
+
+		<div class="fila">
+			<p>Nombre (*)</p>
+			<input type="text" ng-model="persona.nombre" name="nombre" ng-minlength=1 ng-maxlength=32 required placeholder="Nombre" />
+
+			<div class="tooltip-error" ng-if="agregar.nombre.$error.required && agregar.nombre.$dirty">
+				Debes completar este campo
+
+				<span class="tooltip-arrow"></span>
+			</div>
+		</div>
+
+		<div class="fila">
+			<p>Segundo Nombre</p>
+			<input type="text" ng-model="persona.snombre" name="snombre" ng-minlength=0 ng-maxlength=32 ng-init="persona.snombre = ''" placeholder="Segundo nombre" />
+		</div>
+
+		<div class="fila">
+			<p>Apellido (*)</p>
+			<input type="text" ng-model="persona.apellido" name="apellido" ng-minlength=1 ng-maxlength=32 required placeholder="Apellido" />
+
+			<div class="tooltip-error" ng-if="agregar.apellido.$error.required && agregar.apellido.$dirty">
+				Debes completar este campo
+
+				<span class="tooltip-arrow"></span>
+			</div>
+		</div>
+
+		<div class="fila">
+			<p>Segundo Apellido</p>
+			<input type="text" ng-model="persona.sapellido" name="sapellido" ng-minlength=0 ng-maxlength=32 ng-init="persona.sapellido = ''" placeholder="Segundo apellido" />
+		</div>
+
+		<div class="fila">
+			<p>Cédula (*)</p>
+			<input type="text" ng-model="persona.cedula" name="cedula" ng-minlength=0 ng-maxlength=32 ng-init="persona.cedula = ''" placeholder="Cédula" required />
+
+			<div class="tooltip-error" ng-if="agregar.cedula.$error.required && agregar.cedula.$dirty">
+				Debes completar este campo
+
+				<span class="tooltip-arrow"></span>
+			</div>
+		</div>
+
+		<div class="fila">
+			<p>Fecha de Nacimiento (*)</p>
+			<div class="datepicker-nacimiento" style="width: 100%;">
+				<input type="text" id="fecha_nac" class="form-control" ng-model="persona.fecha_nacimiento" name="fecha_nac" style="font-size: 11px;" readonly required />
+			</div>
+
+			<script type="text/javascript">
+				$('.datepicker-nacimiento input').datepicker({
+					format: 'dd/mm/yyyy',
+				});
+			</script>
+
+			<div class="tooltip-error" ng-if="agregar.fecha_nac.$error.required && agregar.fecha_nac.$dirty">
+				Debes completar este campo
+
+				<span class="tooltip-arrow"></span>
+			</div>
+		</div>
+
+		<div class="fila" ng-init="cargar_lugares()">
+			<p>Parroquia (*)</p>
+			<input type="text" ng-model="persona.lugar" name="lugar" />
+
+			<!--<select class="selectpicker" data-live-search="true" data-width="75%" ng-model="persona.lugar" name="lugar" required ts-select-fix>
+				<option ng-repeat="lugar in lugares" value="{{ lugar.id }}" ng-if="lugar.tipo == 'parroquia'">{{ lugar.nombre_completo }}</option>
+			</select>-->
+		</div>
+
+		<div class="fila">
+			<p>Dirección (*)</p>
+			<input type="text" ng-model="persona.direccion" name="direccion" ng-minlength=0 ng-maxlength=256 placeholder="Ej: Bloque 19, Piso 3, Apto. 319" />
+		</div>
+
+		<div class="fila">
+			<p>Sexo (*)</p>
+			<select class="selectpicker" data-width="75%" ng-model="persona.sexo" name="sexo" required ts-select-fix>
+				<option ng-repeat="s in ['Masculino', 'Femenino']">{{ s }}</option>
+			</select>
+		</div>
+
+		<div class="fila">
+			<p>Estado civil (*)</p>
+			<select class="selectpicker" data-width="75%" ng-model="persona.estado_civil" name="estado_civil" required ts-select-fix>
+				<option ng-repeat="s in ['Soltero/a', 'Comprometido/a', 'Casado/a', 'Divorciado/a', 'Viudo/a']">{{ s }}</option>
+			</select>
+		</div>
+
+		<div class="fila">
+			<p>Correo electrónico</p>
+			<input type="email" ng-model="persona.email" name="email" ng-minlength=0 ng-maxlength=32 placeholder="Email" />
+		</div>
+
+		<div class="fila">
+			<p>Teléfono</p>
+			<input type="text" ng-model="persona.telefono" name="tlf" ng-minlength=0 ng-maxlength=32 placeholder="Teléfono" />
+		</div>
+
+		<!--<div class="fila">
+			<p>Teléfono</p>
+			<input type="text" ng-model="persona.telefono" name="tlf" ng-minlength=0 ng-maxlength=32 ng-init="persona.telefono = ''" placeholder="Teléfono" />
+		</div>-->
+
+		<div class="fila">
+			<p>Usuario</p>
+			<input type="text" ng-model="persona.usuario" name="usuario" ng-minlength=5 ng-maxlength=32 placeholder="Usuario" ng-model-options="{ updateOn: 'blur' }" unique-bd="usuario" autocomplete="off" />
+
+			<span ng-show="agregar.usuario.$error.minlength">El usuario debe contener al menos 5 caracteres</span>
+			<span ng-show="agregar.usuario.$error.maxlength">Nombre de usuario muy largo!</span>
+			<span ng-show="agregar.usuario.$error.unique && persona.usuario.length > 0">Nombre de usuario ya existente</span>
+		</div>
+
+		<div class="fila">
+			<p>Contraseña</p>
+			<input type="password" ng-model="persona.contrasena" name="contrasena" ng-minlength=5 ng-maxlength=32 placeholder="Contraseña" autocomplete="new-password" />
+
+			<span ng-show="agregar.contrasena.$error.minlength">La contraseña debe contener al menos 5 caracteres</span>
+			<span ng-show="agregar.contrasena.$error.maxlength">Contraseña muy larga!</span>
+		</div>
+
+		<div class="fila">
+			<p>Twitter</p>
+			<input type="text" ng-model="persona.twitter" name="twitter" ng-minlength=0 ng-maxlength=256 placeholder="Usuario o enlace" />
+		</div>
+
+		<div class="fila">
+			<p>Facebook</p>
+			<input type="text" ng-model="persona.facebook" name="facebook" ng-minlength=0 ng-maxlength=256 placeholder="Usuario o enlace" />
+		</div>
+
+		<div>
+			<h3 ng-init="cargar_permisos(); persona.permisos = '';">Permisos <small class="btn btn-link" ng-click="todos_los_permisos()">Marcar todos</small></h3>
+
+			<div class="categoria_permiso" ng-repeat="categoria in permisos | soloCategorias">
+				<h4>{{ categoria }}</h4>
+
+				<p ng-repeat="p in permisos" ng-if="p.categoria == categoria" ng-click="cambiar_permiso(p.id, p.riesgo)" class="permiso {{ persona.permisos.indexOf('[' + p.id + ']') == -1 ? '' : 'bg-success' }}"  style="border: 1px solid {{ p.riesgo < 4 ? '#449d44' : (p.riesgo < 8 ? '#ec971f' : '#c9302c') }}">
+					<span style="color: {{ p.riesgo < 4 ? '#449d44' : (p.riesgo < 8 ? '#ec971f' : '#c9302c') }}">Nivel de riesgo: {{ p.riesgo }} / 10</span><br/>
+					<span>{{ p.descripcion }}</span>
+				</p>
+			</div>
+		</div>
+
+
+		<div class="fila text-center">
+			<button type="submit" class="btn btn-primary" ng-disabled="agregar.$invalid">Aceptar</button>
+		</div>
+	</div>
+</form>
