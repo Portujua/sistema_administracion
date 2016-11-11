@@ -2,7 +2,7 @@
 Options -Indexes
 
 # Pagina de 404 not found
-ErrorDocument 404 /plantilla_admin/404.html
+ErrorDocument 404 /casauslarpietri/404.html
 
 # Prohibir acceso a .htaccess
 <Files ~ “^.*\.([Hh][Tt][Aa])”>
@@ -14,14 +14,14 @@ satisfy all
 RewriteEngine on
 
 # Prohibir acceso a carpeta bd
-RewriteRule ^bd.*$ /plantilla_admin/ [R=301,L]
+RewriteRule ^bd.*$ /casauslarpietri/ [R=301,L]
 
 # Reglas para la API
-RewriteRule ^api/lugares$ /plantilla_admin/php/run.php?fn=cargar_lugares [QSA,L]
-RewriteRule ^api/personas$ /plantilla_admin/php/run.php?fn=cargar_personas [QSA,L]
-RewriteRule ^api/permisos$ /plantilla_admin/php/run.php?fn=cargar_permisos [QSA,L]
+RewriteRule ^api/lugares$ /casauslarpietri/php/run.php?fn=cargar_lugares [QSA,L]
+RewriteRule ^api/personas$ /casauslarpietri/php/run.php?fn=cargar_personas [QSA,L]
+RewriteRule ^api/permisos$ /casauslarpietri/php/run.php?fn=cargar_permisos [QSA,L]
 
-RewriteRule ^api/lugar/(.+)$ /plantilla_admin/php/run.php?fn=cargar_lugar&lid=$1 [QSA,L]
-RewriteRule ^api/persona/(.+)$ /plantilla_admin/php/run.php?fn=cargar_persona&cedula=$1 [QSA,L]
+RewriteRule ^api/lugar/(.+)$ /casauslarpietri/php/run.php?fn=cargar_lugar&lid=$1 [QSA,L]
+RewriteRule ^api/persona/(.+)$ /casauslarpietri/php/run.php?fn=cargar_persona&cedula=$1 [QSA,L]
 
-RewriteRule ^api/check/usuario/(.+)$ /plantilla_admin/php/run.php?fn=check_usuario&username=$1 [QSA,L]
+RewriteRule ^api/check/usuario/(.+)$ /casauslarpietri/php/run.php?fn=check_usuario&username=$1 [QSA,L]
