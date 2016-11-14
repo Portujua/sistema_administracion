@@ -5,6 +5,8 @@
 		$scope.enInicio = true;
 		$scope.express = window.location.hash.indexOf('express') != -1;
 
+		$scope.url = window.location;
+
 		$scope.login_form = {
 			username: "root",
 			password: "root"

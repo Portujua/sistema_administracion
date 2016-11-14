@@ -156,7 +156,7 @@
 			Cursos realizados
 		</h4>
 
-		<div class="cursos">
+		<div class="cursos" ng-if="url.pathname.indexOf('casauslarpietri') != -1">
 			Curso <br>
 			<select class="selectpicker" data-live-search="true" data-width="75%" ng-model="curso.id" name="curso_id" ts-select-fix>
 				<option ng-repeat="curso in cursos" value="{{ $index }}">{{ curso.nombre }}</option>
@@ -183,7 +183,7 @@
 			</button>
 		</div>
 
-		<table class="table table-striped">
+		<table class="table table-striped" ng-if="url.pathname.indexOf('casauslarpietri') != -1">
 			<thead>
 				<th>&nbsp;</th>
 				<th>Nombre del curso</th>

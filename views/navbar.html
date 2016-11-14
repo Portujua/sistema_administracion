@@ -20,7 +20,7 @@
 					<li>Personas</li>
 				</a>
 
-				<a href="./#/cursos" ng-show="loginService.menuAdminCursos()">
+				<a href="./#/cursos" ng-show="loginService.menuAdminCursos() && url.pathname.indexOf('casauslarpietri') != -1">
 					<li>Cursos</li>
 				</a>
 			</ul>
