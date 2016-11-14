@@ -63,5 +63,36 @@
             else
                 return $lugarfull;
         }
+
+        public function csv_personas()
+        {
+            $csv = array();
+            $csv[] = array("Nombre completo", "Cedula", "Telefonos", "Correo electronico", "Sexo", "Estado Civil", "Direccion", "Facebook", "Twitter", "Instagram");
+
+            $data = json_decode($this->cargar_personas(array()), true);
+            
+            foreach ($data as $d)
+            {
+                $tlfs = "";
+
+                foreach ($d['telefonos'] as $tlf)
+                    $tlfs .= $tlf['numero'] . " (" . $tlf['tipo'] . ")\r\n";
+
+                $csv[] = array(
+                    $d['nombre_completo'],
+                    $d['cedula'],
+                    $tlfs,
+                    $d['email'],
+                    $d['sexo'],
+                    $d['estado_civil'],
+                    $d['direccion'] . ", " . $d['lugar_str'],
+                    isset($d['facebook']) ? $d['facebook'] : "",
+                    isset($d['twitter']) ? $d['twitter'] : "",
+                    isset($d['instagram']) ? $d['instagram'] : ""
+                );
+            }
+
+            return $csv;
+        }
 	}
 ?>

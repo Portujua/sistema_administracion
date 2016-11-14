@@ -25,6 +25,10 @@
 			Buscar persona <input type="text" class="input_busqueda" ng-model="busqueda" ng-init="busqueda = ''" placeholder="Use cualquier campo para buscar" />
 		</p>
 
+		<p>
+			<a href="./api/export/personas" target="_blank" class="btn btn-soincopy">Exportar a Excel</a>
+		</p>
+
 		<table class="table table-stripped" ng-init="cargar_personas()">
 			<thead>
 				<th class="text-center">Nombre completo</th>
