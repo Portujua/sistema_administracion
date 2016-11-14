@@ -42,7 +42,8 @@
                     lugar=(select id from Lugar where nombre_completo=:lugar), 
                     direccion=:direccion, 
                     twitter=:twitter, 
-                    facebook=:facebook 
+                    facebook=:facebook,
+                    instagram=:instagram
                 where id=:id
             ");
 
@@ -62,7 +63,8 @@
                 ":lugar" => $post['lugar'],
                 ":direccion" => isset($post['direccion']) ? $post['direccion'] : null,
                 ":twitter" => isset($post['twitter']) ? $post['twitter'] : null,
-                ":facebook" => isset($post['facebook']) ? $post['facebook'] : null
+                ":facebook" => isset($post['facebook']) ? $post['facebook'] : null,
+                ":instagram" => isset($post['instagram']) ? $post['instagram'] : null
             ));
 
             /* Borro los telefonos viejos */

@@ -27,6 +27,7 @@ create table Persona (
 	direccion varchar(256) not null,
 	twitter varchar(256),
 	facebook varchar(256),
+	instagram varchar(256),
 	primary key(id),
 	unique(cedula),
 	foreign key (lugar) references Lugar(id)

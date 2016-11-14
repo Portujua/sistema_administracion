@@ -21,8 +21,8 @@
             $json = array();
 
             $query = $this->db->prepare("
-                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook) 
-                values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook)
+                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram) 
+                values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook, :instagram)
             ");
 
             $query->execute(array(
@@ -40,7 +40,8 @@
                 ":lugar" => $post['lugar'],
                 ":direccion" => isset($post['direccion']) ? $post['direccion'] : null,
                 ":twitter" => isset($post['twitter']) ? $post['twitter'] : null,
-                ":facebook" => isset($post['facebook']) ? $post['facebook'] : null
+                ":facebook" => isset($post['facebook']) ? $post['facebook'] : null,
+                ":instagram" => isset($post['instagram']) ? $post['instagram'] : null
             ));
 
             $uid = $this->db->lastInsertId();
