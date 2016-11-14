@@ -41,7 +41,9 @@
 					ng-if="p.id > 1 && p.id != loginService.getCurrentUser().id && (
 						p.nombre_completo.indexOf(busqueda) != -1 ||
 						p.cedula.indexOf(busqueda) != -1 ||
-						p.email.indexOf(busqueda) != -1)
+						p.email.indexOf(busqueda) != -1 ||
+						p.direccion.indexOf(busqueda) != -1 ||
+						p.lugar_str.indexOf(busqueda) != -1)
 
 					&& (solo_activos == false || p.estado == 1)
 					"
