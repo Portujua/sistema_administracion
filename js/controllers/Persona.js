@@ -136,13 +136,13 @@
 					var nac = post.fecha_nacimiento.split('/');
 					post.nacimiento = nac[2] + "-" + nac[1] + "-" + nac[0];
 
-					if (post.facebook)
+					if (post.facebook && post.facebook.indexOf("https://") != -1)
 						post.facebook = post.facebook.match(/\.com\/([A-Za-z0-9\_\-\.]+)([\/\?])?(.+)?/)[1];
 
-					if (post.twitter)
+					if (post.twitter && post.twitter.indexOf("https://") != -1)
 						post.twitter = post.twitter.match(/\.com\/([A-Za-z0-9\_\-\.]+)([\/\?])?(.+)?/)[1];
 
-					if (post.instagram)
+					if (post.instagram && post.instagram.indexOf("https://") != -1)
 						post.instagram = post.instagram.match(/\.com\/([A-Za-z0-9\_\-\.]+)([\/\?])?(.+)?/)[1];
 
 					var fn = "agregar_persona";
