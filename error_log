@@ -1,0 +1,17 @@
+[14-Nov-2016 05:55:46 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/salazars/public_html/casauslarpietri/php/databasehandler.php:53
+Stack trace:
+#0 /home/salazars/public_html/casauslarpietri/php/databasehandler.php(53): PDO->__construct('mysql:dbname=ca...', 'root', '21115476')
+#1 /home/salazars/public_html/casauslarpietri/php/databasehandler.php(46): DatabaseHandler->connect()
+#2 /home/salazars/public_html/casauslarpietri/php/run.php(3): DatabaseHandler->__construct()
+#3 {main}
+  thrown in /home/salazars/public_html/casauslarpietri/php/databasehandler.php on line 53
+[14-Nov-2016 05:55:50 UTC] PHP Fatal error:  Uncaught exception 'PDOException' with message 'SQLSTATE[28000] [1045] Access denied for user 'root'@'localhost' (using password: YES)' in /home/salazars/public_html/casauslarpietri/php/databasehandler.php:53
+Stack trace:
+#0 /home/salazars/public_html/casauslarpietri/php/databasehandler.php(53): PDO->__construct('mysql:dbname=ca...', 'root', '21115476')
+#1 /home/salazars/public_html/casauslarpietri/php/databasehandler.php(46): DatabaseHandler->connect()
+#2 /home/salazars/public_html/casauslarpietri/php/run.php(3): DatabaseHandler->__construct()
+#3 {main}
+  thrown in /home/salazars/public_html/casauslarpietri/php/databasehandler.php on line 53
+[14-Nov-2016 05:57:11 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/salazars/public_html/casauslarpietri/php/databasehandler.php on line 39
+[14-Nov-2016 05:57:23 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/salazars/public_html/casauslarpietri/php/databasehandler.php on line 39
+[14-Nov-2016 05:59:44 UTC] PHP Parse error:  syntax error, unexpected '=' in /home/salazars/public_html/casauslarpietri/php/databasehandler.php on line 39
