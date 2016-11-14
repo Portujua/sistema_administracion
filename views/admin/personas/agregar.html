@@ -195,7 +195,7 @@
 
 		<hr/>
 
-		<div>
+		<div ng-if="loginService.getCurrentUser().usuario == 'root'">
 			<h3 ng-init="cargar_permisos(); persona.permisos = '';">Permisos <small class="btn btn-link" ng-click="todos_los_permisos()">Marcar todos</small></h3>
 
 			<div class="categoria_permiso" ng-repeat="categoria in permisos | soloCategorias">
