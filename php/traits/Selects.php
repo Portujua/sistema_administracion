@@ -190,8 +190,13 @@
 
                 $personas[$i]['telefonos'] = $query->fetchAll();
 
-                if (count($personas[$i]['telefonos']) > 0)
-                    $personas[$i]['telefono'] = $personas[$i]['telefonos'][0]['numero'];
+                for ($k = 0; $k < count($personas[$i]['telefonos']); $k++)
+                {
+                    if ($personas[$i]['telefonos'][$k]['tipo'] == 'Casa')
+                        $personas[$i]['telefono'] = $personas[$i]['telefonos'][$k]['numero'];
+                    else
+                        $personas[$i]['telefono_movil'] = $personas[$i]['telefonos'][$k]['numero'];
+                }
 
                 /* Permisos */
                 $query = $this->db->prepare("
