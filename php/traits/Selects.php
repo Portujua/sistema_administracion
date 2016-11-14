@@ -121,7 +121,8 @@
                     select 
                         c.id as id,
                         c.nombre as nombre,
-                        date_format(pc.fecha, '%d/%m/%Y') as fecha
+                        date_format(pc.fecha, '%d/%m/%Y') as fecha,
+                        pc.sede as sede
                     from Curso as c, Persona_Curso as pc
                     where pc.curso=c.id and pc.persona=:pid
                 ");
@@ -213,7 +214,8 @@
                     select 
                         c.id as id,
                         c.nombre as nombre,
-                        date_format(pc.fecha, '%d/%m/%Y') as fecha
+                        date_format(pc.fecha, '%d/%m/%Y') as fecha,
+                        pc.sede as sede
                     from Curso as c, Persona_Curso as pc
                     where pc.curso=c.id and pc.persona=:pid
                 ");

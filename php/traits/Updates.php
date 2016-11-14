@@ -152,14 +152,15 @@
                     $fecha = $s[2] . "-" . $s[1] . "-" . $s[0];
 
                     $query = $this->db->prepare("
-                        insert into Persona_Curso (curso, persona, fecha)
-                        values (:curso, :persona, :fecha)
+                        insert into Persona_Curso (curso, persona, fecha, sede)
+                        values (:curso, :persona, :fecha, :sede)
                     ");
 
                     $query->execute(array(
                         ":curso" => $c['id'],
                         ":persona" => $post['id'],
                         ":fecha" => $fecha,
+                        ":sede" => $c['sede'],
                     ));
                 }
             }

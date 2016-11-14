@@ -97,6 +97,7 @@ create table Persona_Curso (
 	persona int not null,
 	curso int not null,
 	fecha date not null,
+	sede varchar(256) not null,
 	primary key(id),
 	foreign key (persona) references Persona(id),
 	foreign key (curso) references Curso(id)

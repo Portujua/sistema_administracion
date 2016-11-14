@@ -165,7 +165,12 @@
 			Fecha 
 			<div class="datepicker-curso" style="width: 75%;">
 				<input type="text" id="fechacurso" class="form-control" ng-model="curso.fecha" name="fechacurso" style="font-size: 11px;" readonly />
-			</div> <br>
+			</div> <br><br>
+
+			Sede 
+			<div style="width: 75%;">
+				<input type="text" id="sedecurso" class="form-control" ng-model="curso.sede" name="sedecurso" style="font-size: 11px;" />
+			</div> <br><br>
 
 			<script type="text/javascript">
 				$('.datepicker-curso input').datepicker({
@@ -183,12 +188,14 @@
 				<th>&nbsp;</th>
 				<th>Nombre del curso</th>
 				<th>Fecha de culminación del curso</th>
+				<th>Sede donde se realizó el curso</th>
 			</thead>
 			<tbody>
 				<tr class="curso" ng-repeat="curso in persona.cursos">
 					<td><span ng-click="eliminar_curso($index)" title="Eliminar">&times;</span></td>
 					<td>{{ curso.nombre }}</td>
 					<td>{{ curso.fecha }}</td>
+					<td>{{ curso.sede }}</td>
 				</tr>
 			</tbody>
 		</table>

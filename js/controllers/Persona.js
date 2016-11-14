@@ -201,7 +201,8 @@
 			$scope.persona.cursos.push({
 				id: $scope.cursos[$scope.curso.id].id,
 				nombre: $scope.cursos[$scope.curso.id].nombre,
-				fecha: $scope.curso.fecha
+				fecha: $scope.curso.fecha,
+				sede: $scope.curso.sede
 			});
 
 			$scope.curso = null;
