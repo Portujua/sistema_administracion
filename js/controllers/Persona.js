@@ -136,6 +136,15 @@
 					var nac = post.fecha_nacimiento.split('/');
 					post.nacimiento = nac[2] + "-" + nac[1] + "-" + nac[0];
 
+					if (post.facebook)
+						post.facebook = post.facebook.match(/\.com\/(.+)\?.+/)[1];
+
+					if (post.twitter)
+						post.twitter = post.twitter.match(/\.com\/(.+)\?.+/)[1];
+
+					if (post.instagram)
+						post.instagram = post.instagram.match(/\.com\/(.+)\?.+/)[1];
+
 					var fn = "agregar_persona";
 					var msg = "Persona añadida con éxito";
 
