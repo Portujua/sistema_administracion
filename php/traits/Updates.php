@@ -78,19 +78,29 @@
 
             /* Añado los nuevos */
             $post['telefonos'] = array();
-            
-            if (isset($post['telefono']))
-                $post['telefonos'][] = $post['telefono'];
 
-            for ($i = 0; $i < count($post['telefonos']); $i++)
+            if (isset($post['telefono']))
+                $post['telefonos'][] = array(
+                    "tlf" => $post['telefono'],
+                    "tipo" => 2
+                );
+
+            if (isset($post['telefono_movil']))
+                $post['telefonos'][] = array(
+                    "tlf" => $post['telefono_movil'],
+                    "tipo" => 1
+                );
+
+            foreach ($post['telefonos'] as $tlf)
             {
                $query = $this->db->prepare("
                     insert into Telefono (tlf, tipo, persona) 
-                    values (:tlf, 1, (select id from Persona where cedula=:cedula))
+                    values (:tlf, :tipo, (select id from Persona where cedula=:cedula))
                 ");
 
                 $query->execute(array(
-                    ":tlf" => $post['telefonos'][$i],
+                    ":tlf" => $tlf['tlf'],
+                    ":tipo" => $tlf['tipo'],
                     ":cedula" => $post['cedula']
                 )); 
             }
