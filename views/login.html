@@ -1,6 +1,6 @@
 <form class="login" ng-submit="login()">
 	<p class="text-center">
-		<img src="img/logo.jpg" style="width: 100%;" />
+		<img src="img/{{ url.pathname.indexOf('casauslarpietri') != -1 ? 'logo.jpg' : 'lapiz.png' }}" style="width: 100%;" />
 	</p>
 	<p class="login_alert hidden">Usuario o contraseña incorrecta</p>
 
