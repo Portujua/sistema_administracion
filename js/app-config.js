@@ -42,6 +42,26 @@
 	    };
 	});
 
+	app.filter('paginar', function () {
+	    return function (_items, args) {
+	    	console.log(_items, args)
+	    	/* El formato seria paginar:'resultadosPorPagina|PaginaActual' */
+	    	if (!_items) return null;
+
+	    	var items = [];
+	    	var nroResultados = parseInt(args.split('|')[0]);
+	    	var actual = parseInt(args.split('|')[1]);
+
+	    	if (nroResultados >= _items.length)
+	    		return _items;
+	    	
+	    	for (var i = actual*nroResultados; i < actual*nroResultados+nroResultados; i++)
+	    		items.push(_items[i]);
+
+			return items;
+	    };
+	});
+
 	app.config(function(toastrConfig) {
 		angular.extend(toastrConfig, {
 			autoDismiss: false,

@@ -40,8 +40,8 @@
 				<th class="text-center">Dirección</th>
 				<th class="text-center">Redes sociales</th>
 			</thead>
-			<tbody>
-				<tr ng-click="seleccionar(p)" ng-repeat="p in personas"
+			<tbody ng-init="actual = 0;">
+				<tr ng-click="seleccionar(p)" ng-repeat="p in personas | paginar:nroResultados+'|'+actual"
 					ng-if="p.id > 1 && p.id != loginService.getCurrentUser().id && (
 						p.nombre_completo.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
 						p.cedula.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
@@ -73,5 +73,13 @@
 				</tr>
 			</tbody>
 		</table>
+
+		<div class="text-center" ng-show="nroResultados < personas.length">
+			<ul class="pagination">
+				<li ng-repeat="i in paginationCount(nroResultados, personas.length)" class="{{ actual == i ? 'active' : '' }}">
+					<a href="" ng-click="$parent.actual = i;">{{ i + 1 }}</a>
+				</li>
+			</ul>
+		</div>
 	</div>
 </div>
