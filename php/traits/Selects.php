@@ -73,6 +73,7 @@
                     p.formacion as formacion,
                     p.nro_hijos as nro_hijos
                 from Persona as p
+                where p.id > 1
                 ".$query_extra."
             ");
 
@@ -147,7 +148,7 @@
 
         public function cargar_persona($post)
         {
-            $personas = json_decode($this->cargar_personas(array(), "where p.cedula='".$post['cedula']."'"));
+            $personas = json_decode($this->cargar_personas(array(), " and p.cedula='".$post['cedula']."'"));
 
             return json_encode($personas[0]);
         }
