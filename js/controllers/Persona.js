@@ -145,6 +145,10 @@
 					if (post.instagram && post.instagram.indexOf("https://") != -1)
 						post.instagram = post.instagram.match(/\.com\/([A-Za-z0-9\_\-\.]+)([\/\?])?(.+)?/)[1];
 
+					post.facebook.replace("@", "");
+					post.twitter.replace("@", "");
+					post.instagram.replace("@", "");
+
 					var fn = "agregar_persona";
 					var msg = "Persona añadida con éxito";
 
