@@ -43,13 +43,13 @@
 			<tbody>
 				<tr ng-click="seleccionar(p)" ng-repeat="p in personas"
 					ng-if="p.id > 1 && p.id != loginService.getCurrentUser().id && (
-						p.nombre_completo.indexOf(busqueda) != -1 ||
-						p.cedula.indexOf(busqueda) != -1 ||
-						p.email.indexOf(busqueda) != -1 ||
-						p.direccion.indexOf(busqueda) != -1 ||
-						p.lugar_str.indexOf(busqueda) != -1)
+						p.nombre_completo.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
+						p.cedula.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
+						p.email.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
+						p.direccion.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
+						p.lugar.toUpperCase().indexOf(busqueda.toUpperCase()) != -1)
 
-					&& (solo_activos == false || p.estado == 1)
+					&& (p.estado == 1)
 					"
 					class="{{ p.estado == 0 ? 'bg-danger' : '' }} {{ p_.id == p.id ? 'bg-selected' : '' }}">
 					<td class="text-center">{{ p.nombre_completo }}</td>
@@ -59,9 +59,9 @@
 							{{ tlf.numero }} ({{ tlf.tipo }})
 						</p>
 					</td>
-					<td class="text-center">{{ p.email }}</td>
-					<td class="text-center">{{ p.sexo }}</td>
-					<td class="text-center">{{ p.estado_civil }}</td>
+					<td class="text-center">{{ p.email.toUpperCase() }}</td>
+					<td class="text-center">{{ p.sexo.toUpperCase() }}</td>
+					<td class="text-center">{{ p.estado_civil.toUpperCase() }}</td>
 					<td class="text-center">{{ p.direccion + ", " + p.lugar }}</td>
 					<td class="text-center">
 						<a href="https://www.facebook.com/{{ p.facebook }}" target="_blank" class="facebook" ng-if="p.facebook" style="margin-bottom: 5px;"><img src="img/ico-facebook.png" /></a>
