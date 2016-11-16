@@ -45,7 +45,8 @@
                     twitter=:twitter, 
                     facebook=:facebook,
                     instagram=:instagram,
-                    formacion=:formacion
+                    formacion=:formacion,
+                    nro_hijos=:nro_hijos
                 where id=:id
             ");
 
@@ -68,7 +69,8 @@
                 ":twitter" => isset($post['twitter']) ? $post['twitter'] : null,
                 ":facebook" => isset($post['facebook']) ? $post['facebook'] : null,
                 ":instagram" => isset($post['instagram']) ? $post['instagram'] : null,
-                ":formacion" => $post['formacion']
+                ":formacion" => $post['formacion'],
+                ":nro_hijos" => isset($post['nro_hijos']) ? $post['nro_hijos'] : null
             ));
 
             /* Borro los telefonos viejos */

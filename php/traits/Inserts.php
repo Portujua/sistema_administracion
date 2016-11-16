@@ -21,8 +21,8 @@
             $json = array();
 
             $query = $this->db->prepare("
-                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram, tipo_cedula, formacion) 
-                values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook, :instagram, :tipo_cedula, :formacion)
+                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram, tipo_cedula, formacion, nro_hijos) 
+                values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook, :instagram, :tipo_cedula, :formacion, :nro_hijos)
             ");
 
             $query->execute(array(
@@ -43,7 +43,8 @@
                 ":twitter" => isset($post['twitter']) ? $post['twitter'] : null,
                 ":facebook" => isset($post['facebook']) ? $post['facebook'] : null,
                 ":instagram" => isset($post['instagram']) ? $post['instagram'] : null,
-                ":formacion" => $post['formacion']
+                ":formacion" => $post['formacion'],
+                ":nro_hijos" => isset($post['nro_hijos']) ? $post['nro_hijos'] : null
             ));
 
             $uid = $this->db->lastInsertId();

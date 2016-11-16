@@ -70,7 +70,8 @@
                     p.twitter as twitter,
                     p.facebook as facebook,
                     p.instagram as instagram,
-                    p.formacion as formacion
+                    p.formacion as formacion,
+                    p.nro_hijos as nro_hijos
                 from Persona as p
                 ".$query_extra."
             ");
