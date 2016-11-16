@@ -89,6 +89,7 @@ create table Log_Login (
 create table Curso (
 	id int not null auto_increment,
 	nombre varchar(128),
+	estado tinyint(1) default 1,
 	primary key(id)
 ) ENGINE=InnoDB DEFAULT CHARACTER SET=utf8;
 
