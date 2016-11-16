@@ -163,7 +163,8 @@
                     (select nombre_completo from Lugar where id=p.lugar) as lugar,
                     p.direccion as direccion,
                     p.twitter as twitter,
-                    p.facebook as facebook
+                    p.facebook as facebook,
+                    p.instagram as instagram
                 from Persona as p
                 where cedula=:cedula
             ");
