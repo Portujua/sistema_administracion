@@ -12,7 +12,7 @@
 		    }
 		};
 
-		$scope.editar = $routeParams.id;
+		$scope.editar = $routeParams.cedula;
 
 		$scope.cargar_personas = function(){
 			RESTService.getPersonas($scope);

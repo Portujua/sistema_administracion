@@ -104,7 +104,8 @@
                 foreach ($post['cursos'] as $c)
                 {
                     $s = explode("/", $c['fecha']);
-                    $fecha = $s[2] . "-" . $s[1] . "-" . $s[0];
+                    //$fecha = $s[2] . "-" . $s[1] . "-" . $s[0];
+                    $fecha = $s[1] . "-" . $s[0] . "-01";
 
                     $query = $this->db->prepare("
                         insert into Persona_Curso (curso, persona, fecha, sede)

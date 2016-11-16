@@ -1,5 +1,24 @@
 <?php
 	trait Utils {
+        public function check_cedula($post)
+        {
+            $query = $this->db->prepare("
+                select *
+                from Persona
+                where cedula=:ci
+            ");
+
+            $query->execute(array(
+                ":ci" => $post['ci']
+            ));
+
+            $json = array();
+            $json['existe'] = $query->rowCount() > 0 ? true : false;
+            $json['esValido'] = $query->rowCount() == 0 ? true : false;
+
+            return json_encode($json);
+        }
+
 		public function obtener_lugar($post, $lugarfull = array("nombre_completo" => "", "id" => -1, "nombre" => ""), $json = true)
         {
             $query = null;

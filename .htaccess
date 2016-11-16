@@ -26,6 +26,6 @@ RewriteRule ^api/lugar/(.+)$ /casauslarpietri/php/run.php?fn=cargar_lugar&lid=$1
 RewriteRule ^api/persona/(.+)$ /casauslarpietri/php/run.php?fn=cargar_persona&cedula=$1 [QSA,L]
 RewriteRule ^api/curso/(.+)$ /casauslarpietri/php/run.php?fn=cargar_curso&id=$1 [QSA,L]
 
-RewriteRule ^api/check/usuario/(.+)$ /casauslarpietri/php/run.php?fn=check_usuario&username=$1 [QSA,L]
+RewriteRule ^api/check/cedula/(.+)$ /casauslarpietri/php/run.php?fn=check_cedula&ci=$1 [QSA,L]
 
 RewriteRule ^api/export/(.+)$ /casauslarpietri/php/export.php?t=$1 [QSA,L]

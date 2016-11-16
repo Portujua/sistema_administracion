@@ -42,10 +42,16 @@
 
 		<div class="fila">
 			<p>Cédula (*)</p>
-			<input type="text" ng-model="persona.cedula" name="cedula" ng-minlength=0 ng-maxlength=32 ng-init="persona.cedula = ''" placeholder="Cédula" required />
+			<input type="text" ng-model="persona.cedula" name="cedula" ng-minlength=0 ng-maxlength=32 ng-init="persona.cedula = ''" unique-bd="cedula" ng-model-options="{ updateOn: 'blur' }" placeholder="Cédula" required ng-disabled="editar" />
 
 			<div class="tooltip-error" ng-if="agregar.cedula.$error.required && agregar.cedula.$dirty">
 				Debes completar este campo
+
+				<span class="tooltip-arrow"></span>
+			</div>
+
+			<div class="tooltip-error" ng-if="agregar.cedula.$error.unique && agregar.cedula.$dirty">
+				Cédula ya existente.
 
 				<span class="tooltip-arrow"></span>
 			</div>
@@ -156,7 +162,7 @@
 			Cursos realizados
 		</h4>
 
-		<div class="cursos" ng-if="url.pathname.indexOf('casauslarpietri') != -1">
+		<div class="cursos">
 			Curso <br>
 			<select class="selectpicker" data-live-search="true" data-width="75%" ng-model="curso.id" name="curso_id" ts-select-fix>
 				<option ng-repeat="curso in cursos" value="{{ $index }}">{{ curso.nombre }}</option>
@@ -174,7 +180,8 @@
 
 			<script type="text/javascript">
 				$('.datepicker-curso input').datepicker({
-					format: 'dd/mm/yyyy',
+					format: 'mm/yyyy',
+					minViewMode: "months"
 				});
 			</script>
 
