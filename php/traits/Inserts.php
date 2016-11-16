@@ -21,8 +21,8 @@
             $json = array();
 
             $query = $this->db->prepare("
-                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram, tipo_cedula) 
-                values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook, :instagram, :tipo_cedula)
+                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram, tipo_cedula, formacion) 
+                values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook, :instagram, :tipo_cedula, :formacion)
             ");
 
             $query->execute(array(
@@ -42,7 +42,8 @@
                 ":direccion" => isset($post['direccion']) ? strtoupper($post['direccion']) : null,
                 ":twitter" => isset($post['twitter']) ? $post['twitter'] : null,
                 ":facebook" => isset($post['facebook']) ? $post['facebook'] : null,
-                ":instagram" => isset($post['instagram']) ? $post['instagram'] : null
+                ":instagram" => isset($post['instagram']) ? $post['instagram'] : null,
+                ":formacion" => $post['formacion']
             ));
 
             $uid = $this->db->lastInsertId();

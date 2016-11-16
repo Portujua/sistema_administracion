@@ -69,7 +69,8 @@
                     p.direccion as direccion,
                     p.twitter as twitter,
                     p.facebook as facebook,
-                    p.instagram as instagram
+                    p.instagram as instagram,
+                    p.formacion as formacion
                 from Persona as p
                 ".$query_extra."
             ");

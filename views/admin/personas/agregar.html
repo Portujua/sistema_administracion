@@ -112,6 +112,13 @@
 		</div>
 
 		<div class="fila">
+			<p>Formación (*)</p>
+			<select class="selectpicker" data-width="75%" ng-model="persona.formacion" name="formacion" required ts-select-fix>
+				<option ng-repeat="s in ['Básica', 'Diversificada', 'Profesional', 'Pregrado', 'Postgrado']">{{ s }}</option>
+			</select>
+		</div>
+
+		<div class="fila">
 			<p>Correo electrónico</p>
 			<input type="email" ng-model="persona.email" name="email" ng-minlength=0 ng-maxlength=32 placeholder="Email" />
 		</div>
