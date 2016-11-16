@@ -42,7 +42,14 @@
 
 		<div class="fila">
 			<p>Cédula (*)</p>
-			<input type="text" ng-model="persona.cedula" name="cedula" ng-minlength=0 ng-maxlength=32 ng-init="persona.cedula = ''" unique-bd="cedula" ng-model-options="{ updateOn: 'blur' }" placeholder="Cédula" required ng-disabled="editar" />
+
+			<div style="width: 9%; float: left;">
+				<select class="selectpicker" data-width="100%" ng-model="persona.tipo_cedula" name="tipo_cedula" required ts-select-fix ng-disabled="editar">
+					<option ng-repeat="s in ['V', 'E']">{{ s }}</option>
+				</select>
+			</div>
+
+			<input type="text" ng-model="persona.cedula" name="cedula" ng-minlength=0 ng-maxlength=32 ng-init="persona.cedula = ''" unique-bd="cedula" ng-model-options="{ updateOn: 'blur' }" placeholder="Cédula" required ng-disabled="editar" ng-pattern="/^[0-9]+$/" style="width: 65% !important;" />
 
 			<div class="tooltip-error" ng-if="agregar.cedula.$error.required && agregar.cedula.$dirty">
 				Debes completar este campo

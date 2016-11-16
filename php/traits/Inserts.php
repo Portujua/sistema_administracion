@@ -21,8 +21,8 @@
             $json = array();
 
             $query = $this->db->prepare("
-                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram) 
-                values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook, :instagram)
+                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram, tipo_cedula) 
+                values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook, :instagram, :tipo_cedula)
             ");
 
             $query->execute(array(
@@ -31,6 +31,7 @@
                 ":apellido" => $post['apellido'],
                 ":sapellido" => isset($post['sapellido']) ? $post['sapellido'] : null,
                 ":cedula" => $post['cedula'],
+                ":tipo_cedula" => $post['tipo_cedula'],
                 ":email" => isset($post['email']) ? $post['email'] : null,
                 ":usuario" => isset($post['usuario']) ? $post['usuario'] : null,
                 ":contrasena" => isset($post['contrasena']) ? $post['contrasena'] : null,

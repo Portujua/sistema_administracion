@@ -53,7 +53,7 @@
 					"
 					class="{{ p.estado == 0 ? 'bg-danger' : '' }} {{ p_.id == p.id ? 'bg-selected' : '' }}">
 					<td class="text-center">{{ p.nombre_completo }}</td>
-					<td class="text-center">{{ p.cedula }}</td>
+					<td class="text-center">{{ p.tipo_cedula }} - {{ p.cedula }}</td>
 					<td class="text-center">
 						<p ng-repeat="tlf in p.telefonos">
 							{{ tlf.numero }} ({{ tlf.tipo }})

@@ -14,6 +14,7 @@ create table Persona (
 	segundo_nombre varchar(32),
 	apellido varchar(32) not null,
 	segundo_apellido varchar(32),
+	tipo_cedula varchar(1),
 	cedula varchar(32),
 	email varchar(128),
 	usuario varchar(32),
