@@ -113,5 +113,21 @@
 
             return $csv;
         }
+
+        public function csv_personas_root()
+        {
+            $csv = array();
+            $csv[] = array("Nombre completo", "Fecha de nacimiento");
+
+            $data = json_decode($this->cargar_personas(array()), true);
+            
+            foreach ($data as $d)
+                $csv[] = array(
+                    $d['nombre_completo'],
+                    $d['fecha_nacimiento']
+                );
+
+            return $csv;
+        }
 	}
 ?>
