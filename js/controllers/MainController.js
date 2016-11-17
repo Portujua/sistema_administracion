@@ -7,7 +7,7 @@
 
 		$scope.url = window.location;
 
-		$scope.nroResultados = 2; 
+		$scope.nroResultados = 10; 
 
 		$scope.login_form = {
 			username: "root",
