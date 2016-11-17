@@ -71,7 +71,8 @@
                     p.facebook as facebook,
                     p.instagram as instagram,
                     p.formacion as formacion,
-                    p.nro_hijos as nro_hijos
+                    p.nro_hijos as nro_hijos,
+                    p.oficio as oficio
                 from Persona as p
                 where p.id > 1
                 ".$query_extra."

@@ -44,7 +44,6 @@
 
 	app.filter('paginar', function () {
 	    return function (_items, args) {
-	    	console.log(_items, args)
 	    	/* El formato seria paginar:'resultadosPorPagina|PaginaActual' */
 	    	if (!_items) return null;
 

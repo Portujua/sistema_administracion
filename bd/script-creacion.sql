@@ -31,6 +31,7 @@ create table Persona (
 	instagram varchar(256),
 	formacion varchar(128),
 	nro_hijos int,
+	oficio varchar(256),
 	primary key(id),
 	unique(cedula),
 	foreign key (lugar) references Lugar(id)
