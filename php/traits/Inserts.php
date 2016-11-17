@@ -21,7 +21,7 @@
             $json = array();
 
             $query = $this->db->prepare("
-                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram, tipo_cedula, formacion, nro_hijo, oficio) 
+                insert into Persona (nombre, segundo_nombre, apellido, segundo_apellido, cedula, email, usuario, contrasena, fecha_nacimiento, fecha_creado, sexo, estado_civil, lugar, direccion, twitter, facebook, instagram, tipo_cedula, formacion, nro_hijos, oficio) 
                 values (:nombre, :snombre, :apellido, :sapellido, :cedula, :email, :usuario, :contrasena, :nacimiento, now(), :sexo, :estado_civil, (select id from Lugar where nombre_completo=:lugar), :direccion, :twitter, :facebook, :instagram, :tipo_cedula, :formacion, :nro_hijos, :oficio)
             ");
 
