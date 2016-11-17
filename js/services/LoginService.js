@@ -1,7 +1,7 @@
 (function(){
 	angular.module("adminapp").factory('LoginService', function($http, $location, AlertService, $localStorage, $interval){
 		return {
-			user: $localStorage.user ? $localStorage.user : null,
+			user: null,
 			isLoggedIn: function(){
 				return this.user != null;
 			},
