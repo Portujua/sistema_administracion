@@ -9,6 +9,30 @@
 		<p><small>(*) Campos obligatorios</small></p>
 
 		<div class="fila">
+			<p>Cédula (*)</p>
+
+			<div style="width: 9%; float: left;">
+				<select class="selectpicker" data-width="100%" ng-model="persona.tipo_cedula" name="tipo_cedula" required ts-select-fix ng-disabled="editar">
+					<option ng-repeat="s in ['V', 'E']">{{ s }}</option>
+				</select>
+			</div>
+
+			<input type="text" ng-model="persona.cedula" name="cedula" ng-minlength=0 ng-maxlength=32 ng-init="persona.cedula = ''" unique-bd="cedula" ng-model-options="{ updateOn: 'blur' }" placeholder="Cédula" required ng-disabled="editar" ng-pattern="/^[0-9]+$/" style="width: 65% !important;" />
+
+			<div class="tooltip-error" ng-if="agregar.cedula.$error.required && agregar.cedula.$dirty">
+				Debes completar este campo
+
+				<span class="tooltip-arrow"></span>
+			</div>
+
+			<div class="tooltip-error" ng-if="agregar.cedula.$error.unique && agregar.cedula.$dirty">
+				Cédula ya existente.
+
+				<span class="tooltip-arrow"></span>
+			</div>
+		</div>
+
+		<div class="fila">
 			<p>Nombre (*)</p>
 			<input type="text" ng-model="persona.nombre" name="nombre" ng-minlength=1 ng-maxlength=32 required placeholder="Nombre" />
 
@@ -38,30 +62,6 @@
 		<div class="fila">
 			<p>Segundo Apellido</p>
 			<input type="text" ng-model="persona.sapellido" name="sapellido" ng-minlength=0 ng-maxlength=32 ng-init="persona.sapellido = ''" placeholder="Segundo apellido" />
-		</div>
-
-		<div class="fila">
-			<p>Cédula (*)</p>
-
-			<div style="width: 9%; float: left;">
-				<select class="selectpicker" data-width="100%" ng-model="persona.tipo_cedula" name="tipo_cedula" required ts-select-fix ng-disabled="editar">
-					<option ng-repeat="s in ['V', 'E']">{{ s }}</option>
-				</select>
-			</div>
-
-			<input type="text" ng-model="persona.cedula" name="cedula" ng-minlength=0 ng-maxlength=32 ng-init="persona.cedula = ''" unique-bd="cedula" ng-model-options="{ updateOn: 'blur' }" placeholder="Cédula" required ng-disabled="editar" ng-pattern="/^[0-9]+$/" style="width: 65% !important;" />
-
-			<div class="tooltip-error" ng-if="agregar.cedula.$error.required && agregar.cedula.$dirty">
-				Debes completar este campo
-
-				<span class="tooltip-arrow"></span>
-			</div>
-
-			<div class="tooltip-error" ng-if="agregar.cedula.$error.unique && agregar.cedula.$dirty">
-				Cédula ya existente.
-
-				<span class="tooltip-arrow"></span>
-			</div>
 		</div>
 
 		<div class="fila">
