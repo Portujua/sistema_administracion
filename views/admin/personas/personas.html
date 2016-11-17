@@ -46,7 +46,7 @@
 					ng-if="p.id > 1 && p.id != loginService.getCurrentUser().id && (
 						p.nombre_completo.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
 						p.cedula.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
-						p.email.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
+						(p.email && p.email.toUpperCase().indexOf(busqueda.toUpperCase()) != -1) ||
 						p.direccion.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
 						p.lugar.toUpperCase().indexOf(busqueda.toUpperCase()) != -1)
 
