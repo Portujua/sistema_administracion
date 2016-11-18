@@ -1,0 +1,10 @@
+<form class="login" ng-submit="cambiar_contrasena()">
+	<p class="text-center">
+		<img src="img/{{ url.pathname.indexOf('casauslarpietri') != -1 ? 'logo.jpg' : 'lapiz.png' }}" style="width: 100%;" />
+	</p>
+
+	<p>Introduzca la nueva contraseña</p>
+	<input type="password" ng-model="$parent.nueva_contrasena" placeholder="Contraseña" />
+
+	<button type="submit" name="submit" class="btn btn-primary">Cambiar</button>
+</form>

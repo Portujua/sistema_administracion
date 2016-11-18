@@ -37,11 +37,11 @@
 			</div>
 
 			<p ng-hide="msg_clave_olvidada">Introduzca su nombre de usuario</p>
-			<p ng-hide="msg_clave_olvidada"><input ng-model="username_forgot_password" type="text" maxlength="128" /></p>
+			<p ng-hide="msg_clave_olvidada"><input ng-model="$parent.username_forgot_password" type="text" maxlength="128" /></p>
 		</div>
 
 		<div class="modal-footer">
-			<button class="btn btn-primary" ng-click="msg_clave_olvidada = 'Se le ha enviado un correo de confirmación'">Enviar</button>
+			<button class="btn btn-primary" ng-click="enviar_correo_recuperacion()">Enviar</button>
 			<!--<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>-->
 		</div>
 	</div>

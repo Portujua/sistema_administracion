@@ -37,6 +37,13 @@
 			})
 
 
+
+
+			.when("/recuperar/:usuario", {
+				templateUrl : "views/admin/recuperar.html"
+			})
+
+
 			.otherwise({redirectTo : "/login"});
 	});
 }());

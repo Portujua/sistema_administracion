@@ -28,3 +28,10 @@ Stack trace:
 #1 /home/salazars/public_html/casauslarpietri/php/run.php(10): DatabaseHandler->agregar_persona(Array)
 #2 {main}
   thrown in /home/salazars/public_html/casauslarpietri/php/traits/Inserts.php on line 49
+[17-Nov-2016 12:19:40 UTC] PHP Fatal error:  Call to undefined method DatabaseHandler::cambiar_estado_curso() in /home/salazars/public_html/casauslarpietri/php/run.php on line 10
+[18-Nov-2016 08:41:29 UTC] PHP Notice:  Undefined index: usuario in /home/salazars/public_html/casauslarpietri/php/traits/Utils.php on line 98
+[18-Nov-2016 08:43:58 UTC] PHP Notice:  Undefined index: usuario in /home/salazars/public_html/casauslarpietri/php/traits/Utils.php on line 98
+[18-Nov-2016 08:45:12 UTC] PHP Notice:  Undefined index: usuario in /home/salazars/public_html/casauslarpietri/php/traits/Utils.php on line 98
+[18-Nov-2016 08:45:48 UTC] PHP Warning:  require(../PHPMailer/PHPMailerAutoload.php): failed to open stream: No such file or directory in /home/salazars/public_html/casauslarpietri/php/traits/Utils.php on line 123
+[18-Nov-2016 08:45:48 UTC] PHP Warning:  require(../PHPMailer/PHPMailerAutoload.php): failed to open stream: No such file or directory in /home/salazars/public_html/casauslarpietri/php/traits/Utils.php on line 123
+[18-Nov-2016 08:45:48 UTC] PHP Fatal error:  require(): Failed opening required '../PHPMailer/PHPMailerAutoload.php' (include_path='.:/opt/alt/php54/usr/share/pear:/opt/alt/php54/usr/share/php') in /home/salazars/public_html/casauslarpietri/php/traits/Utils.php on line 123

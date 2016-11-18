@@ -33,6 +33,7 @@ create table Persona (
 	nro_hijos int,
 	oficio varchar(256),
 	nivel_educativo varchar(256),
+	cambiar_contrasena tinyint(1) default 0,
 	primary key(id),
 	unique(cedula),
 	foreign key (lugar) references Lugar(id)

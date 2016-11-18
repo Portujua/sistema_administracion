@@ -22,6 +22,46 @@
             return json_encode($json);
         }
 
+        public function cambiar_contrasena($post)
+        {
+            $json = array();
+
+            $query = $this->db->prepare("
+                select * from Persona where usuario=:usuario and cambiar_contrasena=1
+            ");
+
+            $query->execute(array(
+                ":usuario" => $post['usuario']
+            ));
+
+            if ($query->rowCount() > 0)
+            {
+                $query = $this->db->prepare("
+                    update Persona set 
+                        contrasena=:contrasena,
+                        cambiar_contrasena=0
+                    where usuario=:usuario
+                ");
+
+                $query->execute(array(
+                    ":contrasena" => $post['contrasena'],
+                    ":usuario" => $post['usuario']
+                ));
+
+                $json["status"] = "ok";
+                $json["ok"] = true;
+                $json["msg"] = "La contraseña ha sido cambiada correctamente.";
+            }
+            else
+            {
+                $json["status"] = "ok";
+                $json["error"] = true;
+                $json["msg"] = "Cambio de contraseña invalido.";
+            }
+
+            return json_encode($json);
+        }
+
         public function editar_persona($post)
         {
             $json = array();
