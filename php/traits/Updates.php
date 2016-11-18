@@ -47,7 +47,8 @@
                     instagram=:instagram,
                     formacion=:formacion,
                     nro_hijos=:nro_hijos,
-                    oficio=:oficio
+                    oficio=:oficio,
+                    nivel_educativo=:nivel_educativo
                 where id=:id
             ");
 
@@ -72,7 +73,8 @@
                 ":instagram" => isset($post['instagram']) ? $post['instagram'] : null,
                 ":formacion" => $post['formacion'],
                 ":nro_hijos" => isset($post['nro_hijos']) ? $post['nro_hijos'] : null,
-                ":oficio" => isset($post['oficio']) ? $post['oficio'] : null
+                ":oficio" => isset($post['oficio']) ? $post['oficio'] : null,
+                ":nivel_educativo" => isset($post['nivel_educativo']) ? $post['nivel_educativo'] : null
             ));
 
             /* Borro los telefonos viejos */
