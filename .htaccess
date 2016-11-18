@@ -18,6 +18,7 @@ RewriteRule ^bd.*$ /casauslarpietri/ [R=301,L]
 
 # Reglas para la API
 RewriteRule ^api/lugares$ /casauslarpietri/php/run.php?fn=cargar_lugares [QSA,L]
+RewriteRule ^api/lugares/parroquias$ /casauslarpietri/php/run.php?fn=cargar_parroquias [QSA,L]
 RewriteRule ^api/personas$ /casauslarpietri/php/run.php?fn=cargar_personas [QSA,L]
 RewriteRule ^api/permisos$ /casauslarpietri/php/run.php?fn=cargar_permisos [QSA,L]
 RewriteRule ^api/cursos$ /casauslarpietri/php/run.php?fn=cargar_cursos [QSA,L]

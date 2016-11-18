@@ -40,6 +40,20 @@
             return json_encode($query->fetchAll());
         }
 
+        public function cargar_parroquias($post)
+        {
+            $query = $this->db->prepare("
+                select *
+                from Lugar
+                where tipo='parroquia'
+                order by nombre asc
+            ");
+
+            $query->execute();
+
+            return json_encode($query->fetchAll());
+        }
+
         public function cargar_personas($post, $query_extra = "")
         {
             $query = $this->db->prepare("
