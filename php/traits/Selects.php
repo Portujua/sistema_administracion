@@ -46,6 +46,7 @@
                 select *
                 from Lugar
                 where tipo='parroquia'
+                group by nombre
                 order by nombre asc
             ");
 

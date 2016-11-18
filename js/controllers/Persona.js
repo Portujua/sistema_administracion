@@ -41,6 +41,10 @@
 			RESTService.getLugares($scope);
 		}
 
+		$scope.cargar_parroquias = function(){
+			RESTService.getParroquias($scope);
+		}
+
 		$scope.cargar_cursos = function(){
 			RESTService.getCursos($scope);
 		}

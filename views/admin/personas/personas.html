@@ -23,6 +23,11 @@
 	<div>	
 		<p>
 			Buscar persona <input type="text" class="input_busqueda" ng-model="busqueda" ng-init="busqueda = ''" placeholder="Use cualquier campo para buscar" />
+
+			<select class="selectpicker" data-width="auto" data-live-search="true" ng-init="cargar_parroquias()" ng-model="parroquia" name="parroquia" required ts-select-fix>
+				<option value="-1">Cualquier parroquia</option>
+				<option ng-repeat="p in parroquias" value="{{ p.nombre }}">{{ p.nombre }}</option>
+			</select>
 		</p>
 
 		<p>
@@ -43,12 +48,15 @@
 			</thead>
 			<tbody ng-init="actual = 0;">
 				<tr ng-click="seleccionar(p)" ng-repeat="p in personas | paginar:nroResultados+'|'+actual"
-					ng-if="p.id > 1 && p.id != loginService.getCurrentUser().id && (
+					ng-if="p.id > 1 && p.id != loginService.getCurrentUser().id && 
+					(p.lugar.toUpperCase().indexOf(parroquia.toUpperCase()) != -1 || parroquia == -1) &&
+					(
 						p.nombre_completo.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
 						p.cedula.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
 						(p.email && p.email.toUpperCase().indexOf(busqueda.toUpperCase()) != -1) ||
 						p.direccion.toUpperCase().indexOf(busqueda.toUpperCase()) != -1 ||
-						p.lugar.toUpperCase().indexOf(busqueda.toUpperCase()) != -1)
+						p.lugar.toUpperCase().indexOf(busqueda.toUpperCase()) != -1
+					)
 
 					&& (p.estado == 1)
 					"

@@ -34,7 +34,6 @@
 				$http.get("api/lugares/parroquias").then(function(obj){
 					s.parroquias = obj.data;
 					$timeout(function(){$('.selectpicker').selectpicker('refresh');}, 500);
-					s.autocomplete_lugares();
 				});
 			},
 
